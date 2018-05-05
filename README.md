@@ -108,9 +108,9 @@ The following are some functions for testing or for fun:
 ```
 
 ### 3.2. Launcher ###
-The launcher is responsible for applying patchs and launch the software. After executing the launcher, it will check the [ClientSettings client settings file] to see if there is any patch downloaded. If there is any, it will start patching the software and prompt a GUI showing progress and message to user. After the patching finished or actually there is no any new update, the launcher will launcher the software.
+The launcher is responsible for applying patchs and launch the software. After executing the launcher, it will check the [client settings file](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md) to see if there is any patch downloaded. If there is any, it will start patching the software and prompt a GUI showing progress and message to user. After the patching finished or actually there is no any new update, the launcher will launcher the software.
 
-If you don't like the default GUI, you can implement one yourself. See [http://cws1989.github.io/software-updater/updater/gui/UpdaterWindow.html updater.gui.UpdaterWindow].
+If you don't like the default GUI, you can implement one yourself. See [updater.gui.UpdaterWindow](http://cws1989.github.io/software-updater/updater/gui/UpdaterWindow.html).
 
 If you don't want to use the GUI, you can invoke the functions in the [updater.launcher.BatchPatcher](http://cws1989.github.io/software-updater/updater/launcher/BatchPatcher.html) or [updater.patch](http://cws1989.github.io/software-updater/updater/patch/package-summary.html) to apply patches.
 
