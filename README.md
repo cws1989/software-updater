@@ -9,13 +9,13 @@ Software Updater is a software/library that do software updating. It contains a 
 ## 2. Features ##
 
 Software Updater is not simple a 'download and replace files' updater, it do much more to make:
- # Minimize download size
- # Ensure integrity
- # Rollback when update failed
- # Resumable download and update
- # Block unauthorized access
- # Minimize garbage files
- # Minimize the effort to create patches
+ 1. Minimize download size
+ 1. Ensure integrity
+ 1. Rollback when update failed
+ 1. Resumable download and update
+ 1. Block unauthorized access
+ 1. Minimize garbage files
+ 1. Minimize the effort to create patches
 
 ### 2.1. Minimize download size ###
 The patch downloader will determine the minimum size of patches to download to update the software to highest possible version.
@@ -34,16 +34,16 @@ Whenever there is any error occurred during update process, for example,
  * ... other unexpected error
 , user can choose to roll back to old version and continue to use the software. At the next time to check for updates, the downloader will choose to download full-pack patch only.
 
- # [SelfUpdater Self-Updater] will be used to deal with file locking.
+ 1. [Self-Updater](https://github.com/cws1989/software-updater/blob/master/wiki/SelfUpdater.md) will be used to deal with file locking.
 
 ### 2.4. Resumable download and update ###
 The Software Updater can resume patches downloading or patching process no matter when and how the user terminate the updater.
 
 ### 2.5. Block unauthorized access ###
 #### 2.5.1. Patches Catalog ####
-You can use the build tool to encrypt the [PatchesCatalog catalog] using pre-defined RSA private key. The public key and exponent should be pre-distributed to the [ClientSettings client settings file]. For detail operation, please refer to [AdvancedTutorial#How_do_I_do_authentication_on_catalog.xml? Advanced Tutorial].
+You can use the build tool to encrypt the [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) using pre-defined RSA private key. The public key and exponent should be pre-distributed to the [ClientSettings client settings file]. For detail operation, please refer to [AdvancedTutorial#How_do_I_do_authentication_on_catalog.xml? Advanced Tutorial].
 #### 2.5.2. Patch ####
-You can use the build tool to encrypt the patch using pre-defined AES key and IV and record them into the [PatchesCatalog catalog]. For detail operation, please refer to [AdvancedTutorial#How_do_I_encrypt_the_patch? Advanced Tutorial].
+You can use the build tool to encrypt the patch using pre-defined AES key and IV and record them into the [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) . For detail operation, please refer to [AdvancedTutorial#How_do_I_encrypt_the_patch? Advanced Tutorial].
 
 ### 2.6. Minimize garbage files ###
 If you use the build tool to build a patch of specific version to another specific version, the updater will be able to remove no longer needed file from the software directory.
@@ -58,10 +58,10 @@ After a long time of release, we may have many software version, like 1.0, 1.1, 
 ## 3. Briefing ##
 
 This software is divided into four parts. They are:
- # [Overview#3.1._Builder Builder] - create patches, update [PatchesCatalog catalog] etc.
- # [Overview#3.2._Launcher Launcher] - do patching and launch the software
- # [Overview#3.3._Downloader Downloader] - check and download patches from the Internet
- # [Overview#3.4._Self-Updater Self-Updater] - utility used to patch the launcher
+ 1. [Builder](#31-builder) - create patches, update [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) etc.
+ 1. [Launcher](#32-launcher) - do patching and launch the software
+ 1. [Downloader](#33-downloader) - check and download patches from the Internet
+ 1. [Self-Updater](#34-self-updater) - utility used to patch the launcher
 
 Basically self-updater is part of the launcher so there actually contain only three parts. Launcher and downloader will be distributed accompany with your software and builder will reside in your computer. Because the downloader needs to download the patches through the Internet, so you have to prepare an Internet host space to put the patches.
 
@@ -117,16 +117,16 @@ If you don't want to use the GUI, you can invoke the functions in the [http://so
 ### 3.3. Downloader ###
 The downloader is responsible for checking new updates and download suitable patches from the Internet. There is a default GUI provided showing the download progress, speed and estimated remaining time.
 
-If you don't like the default GUI, you can implement one yourself. See [http://software-updater.googlecode.com/svn/trunk/javadoc/updater/gui/UpdaterWindow.html updater.gui.UpdaterWindow].
+If you don't like the default GUI, you can implement one yourself. See [updater.gui.UpdaterWindow](http://cws1989.github.io/software-updater/updater/gui/UpdaterWindow.html).
 
-If you don't want to use the GUI, you can invoke the functions in the [http://software-updater.googlecode.com/svn/trunk/javadoc/updater/downloader/PatchDownloader.html  updater.downloader.PatcheDownloader] to download patchers.
+If you don't want to use the GUI, you can invoke the functions in the [updater.downloader.PatcheDownloader](http://cws1989.github.io/software-updater/updater/downloader/PatchDownloader.html) to download patchers.
 
 ### 3.4. Self-Updater ###
 This is an updater used by the launcher. The launcher will update the software by add, replace and remove files. Sometimes, we may want to update the launcher jar file. However, when we are executing the launcher to do the update, the launcher jar file may be locked by the JVM. This make updating the launcher using the launcher unworkable. This self-updater is then made to solve this problem.
 
-[SelfUpdater Click here to know more about Self-Updater.]
+[Click here to know more about Self-Updater.](https://github.com/cws1989/software-updater/blob/master/wiki/SelfUpdater.md)
 
 ## 4. Usage Example ##
 Before reading more deep inside, let's have a 6 minutes video step-by-step example first.
 
-[SimpleExample Click here to read the first example.]
+[Click here to read the first example.](https://github.com/cws1989/software-updater/blob/master/wiki/SimpleExample.md)
