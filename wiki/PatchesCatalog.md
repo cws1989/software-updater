@@ -1,5 +1,3 @@
-=Patches Catalog=
-
-<wiki:toc max_depth="3" />
+#Patches Catalog#
 
 Under construction.
