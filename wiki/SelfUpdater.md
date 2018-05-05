@@ -13,9 +13,9 @@ java -jar SelfUpdater.jar {lock file} {replacement file} {launch command}
  * *{launch command}* is the command to use to start the Launcher, it contain JVM arguments and run arguments (can take up more than one argument)
 
 ## Flow ##
- # Acquire update lock
- # Do files replacement, see [replacement file](#replacement-file)
- # Start the launcher and exit
+ 1. Acquire update lock
+ 1. Do files replacement, see [replacement file](#replacement-file)
+ 1. Start the launcher and exit
 If step 1 or 2 failed, it will retry until succeed or [maximum execution time](#maximum-execution-time) reached.
 
 ## Appendix ##
