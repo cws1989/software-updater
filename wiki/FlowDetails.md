@@ -6,7 +6,7 @@
  1. Check if there is any downloaded patches recorded in [client settings file](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md). If there isn't any, go to step 6.
  1. Start patching. Do patching and store the patched and newly created files temporaily in the *update* folder.
  1. Do replacement/movement on all files using the files stored in the *update* folder. If there is more patches to apply, go to step 2 and do patching.
- 1. If there is any file patching failed due to file locking, use the [Self-Updater](https://github.com/cws1989/software-updater/blob/master/README.md#self-updater) to do patching on those files.
+ 1. If there is any file patching failed due to file locking, use the [Self-Updater](https://github.com/cws1989/software-updater/blob/master/README.md#34-self-updater) to do patching on those files.
  1. Validate all files to make sure the client has all the files that the software needs.
  1. Launch the software.
 
