@@ -54,7 +54,7 @@ Q&A: [How do I change the titles and icons of the downloader?](https://github.co
 
 ## Planning ##
 
-### Plan to do in future ###
+### Plans to do in future ###
  1. Support different encryption & checksum method.
  1. Send back error report through web.
  1. Besides providing aes key and iv for patch in [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md), provide another way to get from the invoker (command line or Java function).
