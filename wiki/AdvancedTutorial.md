@@ -204,7 +204,7 @@ After use, you have to renew the initial vector (IV) of the **AES.xml** by:
 java -jar build.jar -renew AES.xml
 ```
 
-## Other ##
+## Others ##
 
 ### What kind of files should not be included in the patch? ###
 Because we will calculate and compare the checksum before patching the file, so those files with content possibly changed in runtime, like database, log file, must not be included in the patch.
