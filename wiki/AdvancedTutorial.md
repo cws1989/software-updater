@@ -1,12 +1,10 @@
-=Advanced Tutorial=
+# Advanced Tutorial #
 
-<wiki:toc max_depth="3" />
+## Launcher ##
 
-==Launcher==
-
-===How do I launch jar instead of executable?===
+### How do I launch jar instead of executable? ###
 Update the [ClientSettings client.xml], change the launch type to *jar*, specify the path to the jar and the main class to launch, e.g.:
-{{{
+```
 <root>
   ...
   <launch>
@@ -16,11 +14,11 @@ Update the [ClientSettings client.xml], change the launch type to *jar*, specify
   </launch>
   ...
 </root>
-}}}
+```
 By using this method, the launcher will load the jar by class loader and invoke the main method of specified main-class.
 
 Besides this, you can also launch the jar by command, e.g.:
-{{{
+```
 <root>
   ...
   <launch>
@@ -29,15 +27,15 @@ Besides this, you can also launch the jar by command, e.g.:
   </launch>
   ...
 </root>
-}}}
+```
 You can use *{java}* instead the path to the Java binary, we will replace *{java}* by the path of the Java binary for you.
 
-===How do I use it with Java executable wrapper (launch4j, JSmooth etc.)?===
+### How do I use it with Java executable wrapper (launch4j, JSmooth etc.)? ###
 No matter you use *wrap* (include the jar in the exe) or *launch only* (jar store separately with exe), you can change your jar to the launcher. We will load your jar instead of launching your jar in separate process (if launch-type is *jar*).
 
-===What if the command parameter contains space?===
-We accept multiple commands in sequence, we will pass those commands to [http://download.oracle.com/javase/6/docs/api/java/lang/ProcessBuilder.html ProcessBuilder] to cater the quoting on different OS, e.g.:
-{{{
+### What if the command parameter contains space? ###
+We accept multiple commands in sequence, we will pass those commands to [ProcessBuilder](http://download.oracle.com/javase/6/docs/api/java/lang/ProcessBuilder.html) to cater the quoting on different OS, e.g.:
+```
 <root>
   ...
   <launch>
@@ -48,11 +46,11 @@ We accept multiple commands in sequence, we will pass those commands to [http://
   </launch>
   ...
 </root>
-}}}
+```
 
-===How do I change the titles and icons of the launcher?===
-Edit the [ClientSettings client.xml], add the following:
-{{{
+### How do I change the titles and icons of the launcher? ###
+Edit the [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md), add the following:
+``
 <root>
   ...
   <information>
@@ -67,24 +65,24 @@ Edit the [ClientSettings client.xml], add the following:
   </information>
   ...
 </root>
-}}}
+```
 The icon location can be either *folder* or *jar*. If it is *folder*, you have to place the image in the folder; if it is *jar*, you have to place the image inside the jar and give the resource path, e.g.:
-{{{
+```
 ...
       <icon>
         <location>jar</location>
         <path>/updater/img/updater_icon.png</path>
       </icon>
 ...
-}}}
+```
 
 See also [#How_do_I_change_the_title_and_icon_of_the_window_of_launcher_and here].
 
-==Downloader==
+## Downloader ##
 
-===How do I change the titles and icons of the downloader?===
+### How do I change the titles and icons of the downloader? ###
 Edit the [ClientSettings client.xml], add the following:
-{{{
+```
 <root>
   ...
   <information>
@@ -99,27 +97,27 @@ Edit the [ClientSettings client.xml], add the following:
   </information>
   ...
 </root>
-}}}
+```
 The icon location can be either *folder* or *jar*. If it is *folder*, you have to place the image in the folder; if it is *jar*, you have to place the image inside the jar and give the resource path, e.g.:
-{{{
+```
 ...
       <icon>
         <location>jar</location>
         <path>/updater/img/updater_icon.png</path>
       </icon>
 ...
-}}}
+```
 
 See also [#How_do_I_change_the_title_and_icon_of_the_window_of_launcher_and here].
 
-===I don't want the client to launch the downloader manually, how do I integrate it into the software?===
+### I don't want the client to launch the downloader manually, how do I integrate it into the software? ###
 You can, in your software, launch the downloader using command prompt (terminal); or you can include the downloader in your class path, then invoke the functions, see [http://software-updater.googlecode.com/svn/trunk/javadoc/updater/downloader/package-summary.html updater.downloader].
 
-==Builder==
+## Builder ##
 
-===How do I add more patches for other versions?===
+### How do I add more patches for other versions? ###
 In the [PatchesCatalog catalog.xml], every patches has its own *`<patch>`* tag, each with different *id*. For example, we have a patch to upgrade from *1.0* to *1.1* and a patch to upgrade from *1.1* to *1.2*:
-{{{
+```
 <patches>
   <patch id="1">
     <version>
@@ -144,15 +142,15 @@ In the [PatchesCatalog catalog.xml], every patches has its own *`<patch>`* tag, 
     </download>
   </patch>
 </patches>
-}}}
+```
 Normally you do not need to create the patch from *1.0* to *1.2*, the downloader can determine *the shortest path* (in download size) and download *1.0`_`1.1.patch* and *1.1`_`1.2.patch* to upgrade the software from 1.0 to 1.2.
 
 Besides creating from version to version, we support to create a full pack of specific version to allow any version to upgrade to it. For example, now we have version 2.0, we create a full pack for it:
-{{{
+```
 java -jar build.jar -full $softwareFolder --output --from-subsequent 1.0 --to 2.0 --output +1.0_2.0.patch
-}}}
+```
 then edit the [PatchesCatalog catalog.xml] and add
-{{{
+```
 <patches>
   ...
   <patch id="3">
@@ -169,22 +167,22 @@ then edit the [PatchesCatalog catalog.xml] and add
   </patch>
   ...
 </patches>
-}}}
+```
 Then, those software with version higher than or equal to 1.0 will consider this patch (if there is a patch available from 1.1 to 2.0, the downloader will compare the download size to determine which patch(es) to download.)
 
 p.s. Besides *--from-subsequent*, you can also use back the *--from*.
 
-===How do I encrypt the patch?===
+### How do I encrypt the patch? ###
 Currently we only accept AES-256. To do this, first we need to create an AES key first:
-{{{
+```
 java -jar build.jar -genkey AES 256 --output AES.xml
-}}}
+```
 When creating patch, you have to add the following at the end of the command:
-{{{
+```
 --key AES.xml
-}}}
+```
 In [PatchesCatalog catalog.xml], you have to include the cipher key and initial vector (IV) for that patch:
-{{{
+```
 <patches>
   ...
   <patch id="{patch id}">
@@ -199,31 +197,31 @@ In [PatchesCatalog catalog.xml], you have to include the cipher key and initial 
     </download>
   </patch>
 </patches>
-}}}
+```
 
 After use, you have to renew the initial vector (IV) of the *AES.xml* by:
-{{{
+```
 java -jar build.jar -renew AES.xml
-}}}
+```
 
-==Other==
+## Other ##
 
-===What kind of files should not be included in the patch?===
+### What kind of files should not be included in the patch? ###
 Because we will calculate and compare the checksum before patching the file, so those files with content possibly changed in runtime, like database, log file, must not be included in the patch.
 
-===Any limitation for the version number?===
+### Any limitation for the version number? ###
 Yes, there is, currently accept only [0-9]+(\.[0-9]+){{{*}}}, that is numbers separated by dot(*.*). We use it to determine which version is newer.
 
-===How to do a quick patch testing?===
+### How to do a quick patch testing? ###
 You can apply the patch to specific folder to test whether the patch works well or not. Use *build.jar* and type:
-{{{
+```
 java -jar build.jar -do $folderToApplyThePatch $pathToPatch
-}}}
+```
 If the patch has been encrypted, you can specify the key to use by *--key*.
 
-===How do I change the title and icon of the window of launcher and downloader?===
+### How do I change the title and icon of the window of launcher and downloader? ###
 Edit the [ClientSettings client.xml], add the following:
-{{{
+```
 <root>
   ...
   <information>
@@ -238,28 +236,28 @@ Edit the [ClientSettings client.xml], add the following:
   </information>
   ...
 </root>
-}}}
+```
 The icon location can be either *folder* or *jar*. If it is *folder*, you have to place the image in the folder; if it is *jar*, you have to place the image inside the jar and give the resource path, e.g.:
-{{{
+```
 ...
       <icon>
         <location>jar</location>
         <path>/updater/img/software_icon.png</path>
       </icon>
 ...
-}}}
+```
 
-===How do I do authentication on catalog.xml?===
+### How do I do authentication on catalog.xml? ###
 Currently we only accept RSA. To do this, first we need to create an RSA key first:
-{{{
+```
 java -jar build.jar -genkey RSA 512 --output RSA.xml
-}}}
+```
 Then we encrypt the [PatchesCatalog catalog] by:
-{{{
+```
 java -jar build.jar -catalog e catalog.xml --key RSA.xml --output catalog_encrypted.xml
-}}}
+```
 In [ClientSettings client.xml], you have to include the modulus and public exponent:
-{{{
+```
 <root>
   ...
   <catalog>
@@ -270,18 +268,18 @@ In [ClientSettings client.xml], you have to include the modulus and public expon
     </public-key>
   </catalog>
 </root>
-}}}
+```
 Copy the public-exponent to the *`<exponent>`* field.
 
 `*` Please be noticed that this key should be pre-distributed.
 
 Now you can upload the encrypted [PatchesCatalog catalog] to the web hosting.
 
-===How do I change the location or file name of client.xml?===
+### How do I change the location or file name of client.xml? ###
 The default location of [ClientSettings client.xml] is specified by the file stored in the jar named *config*, change the value inside can change the default location of the [ClientSettings client.xml].
 
 Besides, you can pass the path to [ClientSettings client.xml] as the first argument to the *Launcher* and *PatchDownloader*, e.g.:
-{{{
+```
 java -jar Launcher.jar config.xml
-}}}
+```
 Notice that the argument after *Launcher.jar* cannot have space.
