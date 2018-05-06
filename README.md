@@ -2,6 +2,15 @@
 
 [Click here to view the detail wiki.](https://github.com/cws1989/software-updater/blob/master/wiki/Overview.md)
 
+## Menu ##
+  * [Overview](https://github.com/cws1989/software-updater/blob/master/wiki/Overview.md)
+  * [Simple Example](https://github.com/cws1989/software-updater/blob/master/wiki/SimpleExample.md)
+  * [Advanced Tutorial](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md)
+  * [Client Settings](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md)
+  * [Patches Catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md)
+  * [Flow Details](https://github.com/cws1989/software-updater/blob/master/wiki/FlowDetails.md)
+  * [Technical Details](https://github.com/cws1989/software-updater/blob/master/wiki/TechnicalDetails.md)
+
 ## Overview ##
 Software Updater is a software/library that do software updating. It contains a library that do patch creating, downloading and patching. Besides, there is a GUI interface provided that utilize the library to do software updating.
 
