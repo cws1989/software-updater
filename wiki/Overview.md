@@ -41,9 +41,9 @@ The Software Updater can resume patches downloading or patching process no matte
 
 ### 2.5. Block unauthorized access ###
 #### 2.5.1. Patches Catalog ####
-You can use the build tool to encrypt the [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) using pre-defined RSA private key. The public key and exponent should be pre-distributed to the [ClientSettings client settings file]. For detail operation, please refer to [AdvancedTutorial#How_do_I_do_authentication_on_catalog.xml? Advanced Tutorial].
+You can use the build tool to encrypt the [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) using pre-defined RSA private key. The public key and exponent should be pre-distributed to the [client settings file](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md). For detail operation, please refer to [Advanced Tutorial](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml).
 #### 2.5.2. Patch ####
-You can use the build tool to encrypt the patch using pre-defined AES key and IV and record them into the [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) . For detail operation, please refer to [AdvancedTutorial#How_do_I_encrypt_the_patch? Advanced Tutorial].
+You can use the build tool to encrypt the patch using pre-defined AES key and IV and record them into the [catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) . For detail operation, please refer to [Advanced Tutorial](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-encrypt-the-patch).
 
 ### 2.6. Minimize garbage files ###
 If you use the build tool to build a patch of specific version to another specific version, the updater will be able to remove no longer needed file from the software directory.
