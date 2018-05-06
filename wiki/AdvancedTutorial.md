@@ -210,7 +210,7 @@ java -jar build.jar -renew AES.xml
 Because we will calculate and compare the checksum before patching the file, so those files with content possibly changed in runtime, like database, log file, must not be included in the patch.
 
 ### Any limitation for the version number? ###
-Yes, there is, currently accept only [0-9]+(\.[0-9]+){{{*}}}, that is numbers separated by dot(*.*). We use it to determine which version is newer.
+Yes, there is, currently accept only [0-9]+(\.[0-9]+)*, that is numbers separated by dot(*.*). We use it to determine which version is newer.
 
 ### How to do a quick patch testing? ###
 You can apply the patch to specific folder to test whether the patch works well or not. Use **build.jar** and type:
