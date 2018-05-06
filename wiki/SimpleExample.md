@@ -11,9 +11,9 @@ In this example, we are going integrate the Software Updater into [Sweet Home 3D
 
 ## Integrate the updater to the software ##
  1. Open the software's root folder.
- 1. Copy **Launcher.jar** and **PatchDownloader.jar** into it.
- 1. Create a new folder named **update** and a file named [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md)
- 1. Put the following content into [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md).
+ 2. Copy **Launcher.jar** and **PatchDownloader.jar** into it.
+ 3. Create a new folder named **update** and a file named [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md)
+ 4. Put the following content into [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md).
 ```xml
 <root>
   <version>{software version}</version>
@@ -27,7 +27,7 @@ In this example, we are going integrate the Software Updater into [Sweet Home 3D
   </catalog>
 </root>
 ```
- 1. Execute the **Launcher.jar** to see if it can launch your software correctly or not.
+ 5. Execute the **Launcher.jar** to see if it can launch your software correctly or not.
 
 ### Common Questions ###
  * [How do I launch jar instead of executable?](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-launch-jar-instead-of-executable)
@@ -35,15 +35,15 @@ In this example, we are going integrate the Software Updater into [Sweet Home 3D
 
 ## Create patches ##
  1. Move the [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md) out from the software folder first, see [here](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#what-kind-of-files-should-not-be-included-in-the-patch) for reason.
- 1. Find the build.jar and execute 
+ 2. Find the build.jar and execute 
 ```
 java -jar build.jar -patch $oldVersionFolder $newVersionFolder --from $currentVersionNumber --to $newVersionNumber --output upgrade.patch
 ```
- 1. Get the SHA256 checksum of the file: 
+ 3. Get the SHA256 checksum of the file: 
 ```
 java -jar build.jar -sha256 upgrade.patch -o checksum.txt
 ```
- 1. Create a file named [catalog.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) and put the following content into it:
+ 4. Create a file named [catalog.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) and put the following content into it:
 ```xml
 <patches>
   <patch id="1">
@@ -59,7 +59,7 @@ java -jar build.jar -sha256 upgrade.patch -o checksum.txt
   </patch>
 </patches>
 ```
- 1. Upload the [catalog.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) and **upgrade.patch** to your web hosting.
+ 5. Upload the [catalog.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) and **upgrade.patch** to your web hosting.
 
 ### Common Questions ###
  * [How do I add more patches for other versions?](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-add-more-patches-for-other-versions)
