@@ -1,19 +1,19 @@
-#Simple Example#
+# Simple Example #
 
-##Introduction##
+## Introduction ##
 In this example, we are going integrate the Software Updater into [Sweet Home 3D](http://www.sweethome3d.com) and make a patch from version 3.2 to 3.3.
 
-##Video##
-<wiki:video url="http://www.youtube.com/watch?v=RAwjiZDN6rw"/>
+## Video ##
+[https://www.youtube.com/watch?v=UfLkDaTIkQs](https://www.youtube.com/watch?v=UfLkDaTIkQs)
 
 ##Preparation##
- # Download the software updater from [here](http://code.google.com/p/software-updater/downloads)
+ 1. Download the software updater from [here](https://github.com/cws1989/software-updater/releases)
 
 ##Integrate the updater to the software##
- # Open the software's root folder.
- # Copy *Launcher.jar* and *PatchDownloader.jar* into it.
- # Create a new folder named *update* and a file named [client.xml](ClientSettings)
- # Put the following content into [ClientSettings client.xml].
+ 1. Open the software's root folder.
+ 1. Copy *Launcher.jar* and *PatchDownloader.jar* into it.
+ 1. Create a new folder named *update* and a file named [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md)
+ 1. Put the following content into [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md).
 ```
 <root>
   <version>{software version}</version>
@@ -27,18 +27,24 @@ In this example, we are going integrate the Software Updater into [Sweet Home 3D
   </catalog>
 </root>
 ```
- # Execute the *Launcher.jar* to see if it can launch your software correctly or not.
+ 1. Execute the *Launcher.jar* to see if it can launch your software correctly or not.
 
-##=Common Questions##=
+### Common Questions ###
  * [AdvancedTutorial#How_do_I_launch_jar_instead_of_executable? How do I launch jar instead of executable?]
  * [AdvancedTutorial#How_do_I_use_it_with_Java_executable_wrapper_(launch4j,_JSmooth How do I use it with Java executable wrapper launch4j, JSmooth etc.)?]
 
-##Create patches##
- # Move the [ClientSettings client.xml] out from the software folder first, see [AdvancedTutorial#What_kind_of_files_should_not_be_included_in_the_patch? here] for reason.
- # Find the build.jar and execute {{{java -jar build.jar -patch $oldVersionFolder $newVersionFolder --from $currentVersionNumber --to $newVersionNumber --output upgrade.patch}}}
- # Get the SHA256 checksum of the file: {{{java -jar build.jar -sha256 upgrade.patch -o checksum.txt}}}
- # Create a file named [PatchesCatalog catalog.xml] and put the following content into it:
-{{{
+## Create patches ##
+ 1. Move the [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md) out from the software folder first, see [AdvancedTutorial#What_kind_of_files_should_not_be_included_in_the_patch? here] for reason.
+ 1. Find the build.jar and execute 
+```
+java -jar build.jar -patch $oldVersionFolder $newVersionFolder --from $currentVersionNumber --to $newVersionNumber --output upgrade.patch
+```
+ 1. Get the SHA256 checksum of the file: 
+```
+java -jar build.jar -sha256 upgrade.patch -o checksum.txt
+```
+ 1. Create a file named [PatchesCatalog catalog.xml] and put the following content into it:
+```
 <patches>
   <patch id="1">
     <version>
@@ -52,15 +58,15 @@ In this example, we are going integrate the Software Updater into [Sweet Home 3D
     </download>
   </patch>
 </patches>
-}}}
- # Upload the [PatchesCatalog catalog.xml] and *upgrade.patch* to your web hosting.
+```
+ 1. Upload the [PatchesCatalog catalog.xml] and *upgrade.patch* to your web hosting.
 
-###Common Questions###
+### Common Questions ###
  * [AdvancedTutorial#How_do_I_add_more_patches_for_other_versions? How do I add more patches for other versions?]
 
-##Client update the software##
- # Execute the *PatchDownloader.jar* to download the patch.
- # After the downloads completed, execute the *Launcher.jar* to update and launch the software.
+## Client update the software ##
+ 1. Execute the *PatchDownloader.jar* to download the patch.
+ 1. After the downloads completed, execute the *Launcher.jar* to update and launch the software.
 
-###Common Questions###
+### Common Questions ###
  * [AdvancedTutorial#I_don't_want_the_client_to_launch_the_downloader_manually, I don't want the client to launch the downloader manually, how do I integrate it into the software?]
