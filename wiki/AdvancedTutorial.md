@@ -50,7 +50,7 @@ We accept multiple commands in sequence, we will pass those commands to [Process
 
 ### How do I change the titles and icons of the launcher? ###
 Edit the [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md), add the following:
-``
+```
 <root>
   ...
   <information>
