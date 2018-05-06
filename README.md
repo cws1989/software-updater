@@ -64,3 +64,6 @@ Q&A: [How do I change the titles and icons of the downloader?](https://github.co
 
 ## Support & Discussion ##
 [Support & Discussion Group](http://groups.google.com/group/software-updater)
+
+## Google Project ##
+https://code.google.com/archive/p/software-updater/
