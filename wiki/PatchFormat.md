@@ -7,12 +7,12 @@ The following is the file format of the patch file.
 | 5 | the header of the patch file, with ASCII characters "PATCH" |
 | 1 | the compression method, 0 using GZIP, 1 using LZMA2 |
 | | (the following is compressed using the above mentioned compression method) |
-| 3 | the size of the [patch.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchXml.md) file, maximum size is 16MB (before compression) |
-| ~ | the [patch.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchXml.md) file |
+| 3 | the size of the [patch.xml](#patchxml) file, maximum size is 16MB (before compression) |
+| ~ | the [patch.xml](#patchxml) file |
 | to end | the files listed in patch.xml, one by one in order |
 
 
-# Patch.xml #
+## Patch.xml ##
 
 The patch.xml is packed in the [patch](https://github.com/cws1989/software-updater/blob/master/wiki/PatchFormat.md). It contains the information as mentioned below:
 1. the type of the patch, full patch or diff patch
