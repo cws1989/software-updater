@@ -40,7 +40,7 @@ The client settings is stored in client.xml.
 | [&lt;information&gt;](#information) | the title and icon of the launcher/downloader<br />it is optional, if not specified, it will use the default title and icon |
 | [&lt;launch&gt;](#launch) | the way to launch the software |
 | [&lt;catalog&gt;](#catalog) | the information of the catalog |
-| | Some data will be stored by the software updater, see below for details |
+| | Some data will be stored by the software updater, see [below](#data-stored-by-software-updater) for details |
 
 
 ## &lt;version&gt; ##
