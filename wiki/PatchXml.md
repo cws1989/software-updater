@@ -7,7 +7,7 @@ The patch.xml is packed in the patch. It contains the information as mentioned b
 4. a list of checksum of all files of the new version of software (including the files mentioned in 3)
 
 
-You can get an example of patch.xml using the **--extract** option from [builder](https://github.com/cws1989/software-updater/blob/master/wiki/Overview.md#31-builder)
+You can get an example of patch.xml using the **--extract** option from [builder](https://github.com/cws1989/software-updater/blob/master/wiki/Overview.md#31-builder), by extracting a patch file
 ```
 java -jar builder.jar --extract {patch file} {folder to store the extracted files}
 ```
