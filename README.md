@@ -8,6 +8,7 @@
   * [Advanced Tutorial](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md)
   * [Client Settings](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md)
   * [Patches Catalog](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md)
+  * [Patch](https://github.com/cws1989/software-updater/blob/master/wiki/Patch.md)
   * [Flow Details](https://github.com/cws1989/software-updater/blob/master/wiki/FlowDetails.md)
   * [Technical Details](https://github.com/cws1989/software-updater/blob/master/wiki/TechnicalDetails.md)
 
