@@ -24,10 +24,12 @@ The client settings is stored in client.xml.
 </root>
 ```
 
-The **&lt;version&gt;** tag is the current version of the software.  
-The **&lt;storage-path&gt;** is the folder used to store the temporary files generated during patching etc.. This folder should be empty and only used by this software updater.  
-The **&lt;launch&gt;** tag stores the way to launch the software.  
-The **&lt;catalog&gt;** tag stores the url to get the catalog.  
+| Tag | Description |
+| --- | --- |
+| &lt;version&gt; | the current version of the software |
+| &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.. This folder should be empty and only be used by this software updater |
+| &lt;launch&gt; | the way to launch the software |
+| &lt;catalog&gt; | the url to get the catalog |
 
 ## &lt;launch&gt; ##
 
