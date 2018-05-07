@@ -356,7 +356,8 @@ public class HTTPDownloader implements Pausable, Interruptible {
       }
 
       // check the downloaded file
-      if (cumulateByteRead + startRange != contentLength) {
+      if ((contentLength != -1 && cumulateByteRead + startRange != contentLength)
+          || (expectedLength != -1 && cumulateByteRead + startRange != expectedLength)) {
         throw new RuntimeException(DownloadResult.FAILED.getValue());
       }
       if (fileSHA256 != null && digest != null && !CommonUtil.byteArrayToHexString(digest.digest()).equals(fileSHA256)) {
