@@ -28,8 +28,8 @@ The client settings is stored in client.xml.
 | --- | --- |
 | &lt;version&gt; | the current version of the software |
 | &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.. This folder should be empty and only be used by this software updater |
-| &lt;launch&gt; | the way to launch the software |
-| &lt;catalog&gt; | the information of the catalog |
+| [&lt;launch&gt;](#launch) | the way to launch the software |
+| [&lt;catalog&gt;](#catalog) | the information of the catalog |
 
 ## &lt;launch&gt; ##
 
