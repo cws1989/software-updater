@@ -25,7 +25,7 @@ The patches catalog is the catalog file containing the patches information, this
 
 | Tag | Description |
 | --- | --- |
-| &lt;patch&gt; | each patch should have one &lt;patch&gt;, note the **patch id** is manually set, and should be distinct across all patches |
+| &lt;patch&gt; | each patch should have one &lt;patch&gt;, note the **patch id** is manually set, and should be distinct across all patches, should not reuse the patch id |
 | [&lt;version&gt;](#version) | telling what version of the software can apply this patch, and the software version after patching |
 | [&lt;download&gt;](#download) | the information about the patch file, url to download, file length, check sum, encryption key |
 
