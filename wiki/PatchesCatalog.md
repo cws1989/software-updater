@@ -1,6 +1,6 @@
 # Patches Catalog #
 
-The patches catalog is the catalog file containing the patches information, this file should be host on the internet.
+The patches catalog is the catalog file containing the patches information, this file should be host on the internet. The url of this catalog should be included in the [client settings](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md).
 
 ```xml
 <patches>
@@ -25,7 +25,7 @@ The patches catalog is the catalog file containing the patches information, this
 
 | Tag | Description |
 | --- | --- |
-| &lt;patch&gt; | each patch should have one &lt;patch&gt;, note the **patch id** is manually set, and should be distinct across all patches |
+| &lt;patch&gt; | each patch should have one &lt;patch&gt;, note the **patch id** is manually set, and should be distinct across all patches, should not reuse the patch id |
 | [&lt;version&gt;](#version) | telling what version of the software can apply this patch, and the software version after patching |
 | [&lt;download&gt;](#download) | the information about the patch file, url to download, file length, check sum, encryption key |
 
@@ -35,9 +35,9 @@ The patches catalog is the catalog file containing the patches information, this
 
 There is two way to set here. The first is to use **&lt;from&gt;** and **&lt;to&gt;**, the second is to use **&lt;from-subsequent&gt;** and **&lt;to&gt;**.
 
-**&lt;from&gt;** and **&lt;to&gt;** can be used for full-pack and diff patching, specifing the patch is available only for specific version of software to upgrade to specific version of software.
+**&lt;from&gt;** and **&lt;to&gt;** can be used for **full-pack** and **diff** patching, specifing the patch is available only for a specific version of software to upgrade to specific version of software.
 
-**&lt;from-subsequent&gt;** and **&lt;to&gt;** can only be used for full-pack patching, specifing software version >= **&lt;from-subsequent&gt;** and version < **&lt;to&gt;** can apply the patch.
+**&lt;from-subsequent&gt;** and **&lt;to&gt;** can only be used for **full-pack** patching, specifing software version >= **&lt;from-subsequent&gt;** and version < **&lt;to&gt;** can apply the patch.
 
 ## &lt;download&gt; ##
 
@@ -45,7 +45,7 @@ If you didn't use encryption, you can just include like:
 ```xml
 ...
     <download>
-      <url>http://file.lazysnake.com/u/32/1.0.0_1.0.1.patch</url>
+      <url>http://localhost/1.0.0_1.0.1.patch</url>
       <checksum>84230577e7d95ce5307484f478b90a2f35a52c742800169aae137f6ab8c1956b</checksum>
       <length>269968</length>
     </download>
@@ -67,7 +67,8 @@ If you have used encryption on patch, you have to include the cipher key like:
     </download>
 ...
 ```
+The patch should be hosted on the internet, the **&lt;url&gt;** is the url to download the patch file, the **&lt;checksum&gt;** is the SHA-256 of the patch file, the **&lt;length&gt;** is the file length of the patch file in bytes.
 
 [How do I encrypt the patch?](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-encrypt-the-patch)
 
-You should also consider encrypting the catalog, see [here](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml)
+You should also consider encrypting the patches catalog, see [here](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml)
