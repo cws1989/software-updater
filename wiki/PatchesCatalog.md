@@ -67,7 +67,7 @@ If you have used encryption on patch, you have to include the cipher key like:
     </download>
 ...
 ```
-The checksum is the SHA-256 of the patch file, the length is the file length in bytes.
+The checksum is the SHA-256 of the patch file, the length is the file length of the patch file in bytes.
 
 [How do I encrypt the patch?](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-encrypt-the-patch)
 
