@@ -14,7 +14,8 @@ The following is the file format of the patch file.
 
 ## Patch.xml ##
 
-The patch.xml is packed in the [patch](https://github.com/cws1989/software-updater/blob/master/wiki/PatchFormat.md). It contains the information as mentioned below:
+The patch.xml is packed in the patch. It contains the information as mentioned below:
+
 1. the type of the patch, full patch or diff patch
 2. the **from**/**from-subsequent** and **to** version, telling what version of the software can apply this patch, and the software version after patching
 3. the detail operations needed to do to patch the software (e.g. new file/folder, patch file, delete file/folder, replace file), file length and checksum of the old and new files will also be included in here
