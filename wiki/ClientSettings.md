@@ -90,4 +90,4 @@ The **&lt;last-updated&gt;** in &lt;catalog&gt; stores the last time the downloa
 
 The **&lt;full-pack-only&gt;** in &lt;catalog&gt; will only exist if a patching failed (and should have done a revert). It indicates normal patching on current software files will fail, so for subsequent update, only full-pack patch will be accepted (no diff patching so will not fail). After a full-pack patching succeed, &lt;full-pack-only&gt; will be removed and set to accept diff-patching again.
 
-The **&lt;patches&gt;** in &lt;root&gt; stores the patches download by the patch downloader, the launcher will apply the patches listed here.
+The **&lt;patches&gt;** in &lt;root&gt; stores the patches download by the patch downloader, the launcher will apply the patches listed.
