@@ -114,6 +114,8 @@ The launcher will use [ProcessBuilder](https://docs.oracle.com/javase/7/docs/api
 
 ## &lt;catalog&gt; ##
 
+Click [here](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md) for the details of the catalog file.
+
 If you didn't use [encryption](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml) on the catalog, you can just include the url of the catalog as:
 ```xml
 ...
