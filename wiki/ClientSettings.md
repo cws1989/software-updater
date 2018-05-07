@@ -50,7 +50,7 @@ The **&lt;version&gt;** tag contains the version id of the current software. The
 
 ## &lt;information&gt; ##
 
-The **&lt;information&gt;** is optional tag, if not specified, the default title and icon will be used for launcher and downloader.
+The **&lt;information&gt;** is an optional tag, if not specified, the default title and icon will be used for launcher and downloader.
 
 The **&lt;information&gt;** tag can have 3 kinds of child tag, they are **&lt;software&gt;**, **&lt;launcher&gt;** and **&lt;downloader&gt;**. The title and icon information contained in **&lt;software&gt;** will be used for both the launcher and downloader, those in **&lt;launcher&gt;** will be used for launcher, and **&lt;downloader&gt;** for downloader.
 
@@ -59,7 +59,7 @@ If **&lt;software&gt;** tag exist with other two type of tags, the following pri
 
 For example, if **&lt;information&gt;** contains **&lt;software&gt;** and **&lt;launcher&gt;** tags, the launcher will use **&lt;launcher&gt;**, the downloader will use **&lt;software&gt;**.
 
-### Title and icon setting ###
+### Title and icon ###
 ```xml
 ...
       <name>Language Files Tool</name>
@@ -69,9 +69,9 @@ For example, if **&lt;information&gt;** contains **&lt;software&gt;** and **&lt;
       </icon>
 ...
 ```
-The **&lt;name&gt;** tag contain the title, the **&lt;icon&gt;** tag contains both **&lt;location&gt;** and **&lt;path&gt;**.
+The **&lt;name&gt;** tag contains the title, the **&lt;icon&gt;** tag contains both **&lt;location&gt;** and **&lt;path&gt;**.
 
-The **&lt;location&gt;** tag can contains either **folder** or **jar**. If it is **folder** the launcher/downloader will get the icon by  using **&lt;path&gt;** as the file path. If it is **jar**, the launcher/downloader will use the **&lt;path&gt;** as the resource path, and get the icon directly from the jar (note you have to pack the icon file in the launcher/downloader).
+The **&lt;location&gt;** tag can be either "**folder**" or "**jar**". If it is **folder**, the launcher/downloader will get the icon by  using the **&lt;path&gt;** as the file path. If it is **jar**, the launcher/downloader will use the **&lt;path&gt;** as the resource path, and get the icon directly from the jar (note you have to pack the icon file into the jar file of launcher/downloader).
 
 ## &lt;launch&gt; ##
 
@@ -127,8 +127,8 @@ If you have used [encryption](https://github.com/cws1989/software-updater/blob/m
 
 ## Data stored by Software Updater ##
 
-The **&lt;last-updated&gt;** in &lt;catalog&gt; stores the last time the downloader downloaded the catalog, the downloader will use **If-Modified-Since** to check if there is any update.
+The **&lt;last-updated&gt;** in **&lt;catalog&gt;** stores the last time the downloader downloaded the catalog, the downloader will use **If-Modified-Since** to check if there is any update.
 
-The **&lt;full-pack-only&gt;** in &lt;catalog&gt; will only exist if a patching failed (and should have done a revert). It indicates normal patching on current software files will fail, so for subsequent update, only full-pack patch will be accepted (no diff patching so will not fail). After a full-pack patching succeed, &lt;full-pack-only&gt; will be removed and set to accept diff-patching again.
+The **&lt;full-pack-only&gt;** in **&lt;catalog&gt;** will only exist if a patching failed (and should have done a revert). It indicates normal patching on current software files will fail, so for subsequent update, only full-pack patch will be accepted (no diff patching so will not fail). After a full-pack patching succeed, &lt;full-pack-only&gt; will be removed and set to accept diff-patching again.
 
-The **&lt;patches&gt;** in &lt;root&gt; stores the patches download by the patch downloader, the launcher will apply the patches listed.
+The **&lt;patches&gt;** in **&lt;root&gt;** stores the patches download by the patch downloader, the launcher will apply the patches listed.
