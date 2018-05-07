@@ -35,9 +35,9 @@ The patches catalog is the catalog file containing the patches information, this
 
 There is two way to set here. The first is to use **&lt;from&gt;** and **&lt;to&gt;**, the second is to use **&lt;from-subsequent&gt;** and **&lt;to&gt;**.
 
-**&lt;from&gt;** and **&lt;to&gt;** can be used for full-pack and diff patching, specifing the patch is available only for specific version of software to upgrade to specific version of software.
+**&lt;from&gt;** and **&lt;to&gt;** can be used for **full-pack** and **diff** patching, specifing the patch is available only for a specific version of software to upgrade to specific version of software.
 
-**&lt;from-subsequent&gt;** and **&lt;to&gt;** can only be used for full-pack patching, specifing software version >= **&lt;from-subsequent&gt;** and version < **&lt;to&gt;** can apply the patch.
+**&lt;from-subsequent&gt;** and **&lt;to&gt;** can only be used for **full-pack** patching, specifing software version >= **&lt;from-subsequent&gt;** and version < **&lt;to&gt;** can apply the patch.
 
 ## &lt;download&gt; ##
 
@@ -67,7 +67,8 @@ If you have used encryption on patch, you have to include the cipher key like:
     </download>
 ...
 ```
+The checksum is the SHA-256 of the patch file, the length is the file length in bytes.
 
 [How do I encrypt the patch?](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-encrypt-the-patch)
 
-You should also consider encrypting the catalog, see [here](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml)
+You should also consider encrypting the patches catalog, see [here](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml)
