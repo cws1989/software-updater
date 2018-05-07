@@ -35,23 +35,43 @@ The client settings is stored in client.xml.
 
 | Tag | Description |
 | --- | --- |
-| &lt;version&gt; | the current version of the software |
+| [&lt;version&gt;](#version) | the current version of the software |
 | &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.. This folder should be empty and only be used by this software updater |
 | [&lt;information&gt;](#information) | the title and icon of the launcher/downloader<br />it is optional, if not specified, it will use the default title and icon |
 | [&lt;launch&gt;](#launch) | the way to launch the software |
 | [&lt;catalog&gt;](#catalog) | the information of the catalog |
 | | Some data will be stored by the software updater, see below for details |
 
+
+## &lt;version&gt; ##
+
+The **&lt;version&gt;** tag contains the version id of the current software. The version id currently accept only [0-9]+(.[0-9]+)*, that is numbers separated by dot(.). The software updater use it to determine which version is newer.
+
+
 ## &lt;information&gt; ##
 
-This tag is optional tag, if not specified, the default title and icon will be used for launcher and downloader.
+The **&lt;information&gt;** is optional tag, if not specified, the default title and icon will be used for launcher and downloader.
 
-The **&lt;information&gt;** tag can have 3 kinds of child tag, they are **&lt;software&gt;**, **&lt;launcher&gt;** and **&lt;downloader&gt;**. The **&lt;software&gt;** tag contains the title and icon information of both the launcher and downloader, **&lt;launcher&gt;** contains the information for launcher, **&lt;downloader&gt;** contains for downloader.
+The **&lt;information&gt;** tag can have 3 kinds of child tag, they are **&lt;software&gt;**, **&lt;launcher&gt;** and **&lt;downloader&gt;**. The title and icon information contained in **&lt;software&gt;** will be used for both the launcher and downloader, those in **&lt;launcher&gt;** will be used for launcher, and **&lt;downloader&gt;** for downloader.
 
 If **&lt;software&gt;** tag exist with other two type of tags, the following priority is applied:
 > (**&lt;launcher&gt;** == **&lt;downloader&gt;**) > **&lt;software&gt;**
 
-For example, if **&lt;information&gt;** contains **&lt;software&gt;** and **&lt;launcher&gt;**, the launcher will use **&lt;launcher&gt;**, the downloader will use **&lt;software&gt;**.
+For example, if **&lt;information&gt;** contains **&lt;software&gt;** and **&lt;launcher&gt;** tags, the launcher will use **&lt;launcher&gt;**, the downloader will use **&lt;software&gt;**.
+
+### Title and icon setting ###
+```xml
+...
+      <name>Language Files Tool</name>
+      <icon>
+        <location>folder</location>
+        <path>software_icon.png</path>
+      </icon>
+...
+```
+The **&lt;name&gt;** tag contain the title, the **&lt;icon&gt;** tag contains both **&lt;location&gt;** and **&lt;path&gt;**.
+
+The **&lt;location&gt;** tag can contains either **folder** or **jar**. If it is **folder** the launcher/downloader will get the icon by  using **&lt;path&gt;** as the file path. If it is **jar**, the launcher/downloader will use the **&lt;path&gt;** as the resource path, and get the icon directly from the jar (note you have to pack the icon file in the launcher/downloader).
 
 ## &lt;launch&gt; ##
 
