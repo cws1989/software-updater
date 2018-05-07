@@ -204,6 +204,8 @@ After use, you have to renew the initial vector (IV) of the **AES.xml** by:
 java -jar build.jar -renew AES.xml
 ```
 
+You should also consider encrypting the catalog, see [here](#how-do-i-do-authentication-on-catalogxml)
+
 ## Others ##
 
 ### What kind of files should not be included in the patch? ###
