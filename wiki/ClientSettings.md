@@ -45,7 +45,7 @@ If the type is **jar**, **&lt;jar-path&gt;** and **&lt;main-class&gt;** are used
   </launch>
 ...
 ```
-The launcher will use the [URLClassLoader](https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html) to load the jar, and invoke the main method in the main class specified, all the arguments passed into the launcher will be passed directly into the main method.
+The launcher will use the [URLClassLoader](https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html) to load the jar, and invoke the main method in the main class specified, all the arguments passed to the launcher will be passed directly to the main method.
 
 If the type is **command**, list of **&lt;command&gt;** are used:
 ```xml
@@ -70,7 +70,7 @@ If you didn't use [encryption](https://github.com/cws1989/software-updater/blob/
   </catalog>
 ...
 ```
-If you have used [encryption](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml) on the catalog, you have to include the information like:
+If you have used [encryption](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml) on the catalog, you have to include the cipher key information like:
 ```xml
 ...
   <catalog>
