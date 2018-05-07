@@ -37,12 +37,14 @@ The client settings is stored in client.xml.
 | --- | --- |
 | &lt;version&gt; | the current version of the software |
 | &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.. This folder should be empty and only be used by this software updater |
-| &lt;information&gt; | the title and icon of the launcher/downloader |
+| &lt;information&gt; | the title and icon of the launcher/downloader. it is optional, if not exist, it will use the default title and icon |
 | [&lt;launch&gt;](#launch) | the way to launch the software |
 | [&lt;catalog&gt;](#catalog) | the information of the catalog |
 | | Some data will be stored by the software updater, see below for details |
 
 ## &lt;information&gt; ##
+
+This tag is optional tag, if not specified, the default title and icon will be used for launcher and downloader.
 
 The **&lt;information&gt;** tag can have 3 kinds of child tag, they are **&lt;software&gt;**, **&lt;launcher&gt;** and **&lt;downloader&gt;**. The **&lt;software&gt;** tag contains the title and icon information of both the launcher and downloader, **&lt;launcher&gt;** contains the information for launcher, **&lt;downloader&gt;** contains for downloader.
 
