@@ -116,7 +116,7 @@ You can, in your software, launch the downloader using command prompt (terminal)
 ## Builder ##
 
 ### How do I add more patches for other versions? ###
-In the [catalog.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md), every patches has its own <patch> tag, each with different **id**. For example, we have a patch to upgrade from **1.0** to **1.1** and a patch to upgrade from **1.1** to **1.2**:
+In the [catalog.xml](https://github.com/cws1989/software-updater/blob/master/wiki/PatchesCatalog.md), every patches has its own &lt;patch&gt; tag, each with different **id**. For example, we have a patch to upgrade from **1.0** to **1.1** and a patch to upgrade from **1.1** to **1.2**:
 ```xml
 <patches>
   <patch id="1">
@@ -269,7 +269,7 @@ In [client.xml](https://github.com/cws1989/software-updater/blob/master/wiki/Cli
   </catalog>
 </root>
 ```
-Copy the public-exponent to the <exponent> field.
+Copy the public-exponent to the &lt;exponent&gt; field.
 
 * Please be noticed that this key should be pre-distributed.
 
