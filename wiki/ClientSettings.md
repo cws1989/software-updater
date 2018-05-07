@@ -36,7 +36,7 @@ The client settings is stored in client.xml.
 | Tag | Description |
 | --- | --- |
 | [&lt;version&gt;](#version) | the current version of the software |
-| &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.<br />this folder should be empty and only be used by this software updater |
+| [&lt;storage-path&gt;](#storage-path) | the folder used to store the temporary files generated during patching etc.<br />this folder should only be used by this software updater |
 | [&lt;information&gt;](#information) | the title and icon of the launcher/downloader<br />it is optional, if not specified, it will use the default title and icon |
 | [&lt;launch&gt;](#launch) | the way to launch the software |
 | [&lt;catalog&gt;](#catalog) | the information of the catalog |
@@ -46,6 +46,13 @@ The client settings is stored in client.xml.
 ## &lt;version&gt; ##
 
 The **&lt;version&gt;** tag contains the version id of the current software. The version id currently accept only [0-9]+(.[0-9]+)*, that is numbers separated by dot(.). The software updater use it to determine which version is newer.
+
+
+## &lt;storage-path&gt; ##
+
+The downloaded patch(es), files generated during patching, and the file lock used by the launcher and downloader (to ensure only one instance running), will be stored in this folder.
+
+This folder should only be used by this software updater.
 
 
 ## &lt;information&gt; ##
@@ -72,6 +79,7 @@ For example, if **&lt;information&gt;** contains **&lt;software&gt;** and **&lt;
 The **&lt;name&gt;** tag contains the title, the **&lt;icon&gt;** tag contains both **&lt;location&gt;** and **&lt;path&gt;**.
 
 The **&lt;location&gt;** tag can be either "**folder**" or "**jar**". If it is **folder**, the launcher/downloader will get the icon by  using the **&lt;path&gt;** as the file path. If it is **jar**, the launcher/downloader will use the **&lt;path&gt;** as the resource path, and get the icon directly from the jar (note you have to pack the icon file into the jar file of launcher/downloader).
+
 
 ## &lt;launch&gt; ##
 
@@ -103,7 +111,9 @@ If the type is **command**, list of **&lt;command&gt;** are used:
 ```
 The launcher will use [ProcessBuilder](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html) to create a system process, all the **{java}** in the &lt;command&gt; will be replaced by the path of java binary that used to run the launcher.
 
+
 ## &lt;catalog&gt; ##
+
 If you didn't use [encryption](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml) on the catalog, you can just include the url of the catalog as:
 ```xml
 ...
@@ -124,6 +134,7 @@ If you have used [encryption](https://github.com/cws1989/software-updater/blob/m
   </catalog>
 ...
 ```
+
 
 ## Data stored by Software Updater ##
 
