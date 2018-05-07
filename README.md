@@ -1,7 +1,5 @@
 # Software Updater #
 
-This project was actively developed in 2011, maintained in 2012~2014, stopped in 2014, and picked-up in 2018. Although it is in beta version, it is ready for use.
-
 [Click here to view the detail wiki.](https://github.com/cws1989/software-updater/blob/master/wiki/Overview.md)
 
 ## Menu ##
