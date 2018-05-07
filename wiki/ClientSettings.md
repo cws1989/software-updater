@@ -45,7 +45,7 @@ If the type is **jar**, **&lt;jar-path&gt;** and **&lt;main-class&gt;** are used
   </launch>
 ...
 ```
-The launcher will use the java.net.URLClassLoader to load the jar, and invoke the main method in the main class specified, all the arguments passed into the launcher will be passed directly into the main method.
+The launcher will use the [URLClassLoader](https://docs.oracle.com/javase/7/docs/api/java/net/URLClassLoader.html) to load the jar, and invoke the main method in the main class specified, all the arguments passed into the launcher will be passed directly into the main method.
 
 If the type is **command**, list of **&lt;command&gt;** are used:
 ```xml
@@ -59,7 +59,7 @@ If the type is **command**, list of **&lt;command&gt;** are used:
   </launch>
 ...
 ```
-The launcher will use java.lang.ProcessBuilder to create a system process, all the **{java}** in the &lt;command&gt; will be replaced by the path of java binary.
+The launcher will use [ProcessBuilder](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)to create a system process, all the **{java}** in the &lt;command&gt; will be replaced by the path of java binary.
 
 ## &lt;catalog&gt; ##
 If you didn't use [encryption](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml) on the catalog, you can just include the url of the catalog as:
