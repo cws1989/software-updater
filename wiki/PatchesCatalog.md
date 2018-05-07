@@ -25,13 +25,19 @@ The patches catalog is the catalog file containing the patches information, this
 
 | Tag | Description |
 | --- | --- |
-| &lt;patch&gt; | each patch should have one &lt;patch&gt;, note the patch id is manually set, and should be distinct across all patches |
+| &lt;patch&gt; | each patch should have one &lt;patch&gt;, note the **patch id** is manually set, and should be distinct across all patches |
 | [&lt;version&gt;](#version) | telling what version of the software can apply this patch, and the software version after patching |
 | [&lt;download&gt;](#download) | the information about the patch file, url to download, file length, check sum, encryption key |
 
 
 
 ## &lt;version&gt; ##
+
+There is two way to set here. The first is to use **&lt;from&gt;** and **&lt;to&gt;**, the second is to use **&lt;from-subsequent&gt;** and **&lt;to&gt;**.
+
+**&lt;from&gt;** and **&lt;to&gt;** can be used for full-pack and diff patching, specifing the patch is available only for specific version of software to upgrade to specific version of software.
+
+**&lt;from-subsequent&gt;** and **&lt;to&gt;** can only be used for full-pack patching, specifing software version >= **&lt;from-subsequent&gt;** and version < **&lt;to&gt;** can apply the patch.
 
 ## &lt;download&gt; ##
 
@@ -50,7 +56,7 @@ If you have used encryption on patch, you have to include the cipher key like:
 ```xml
 ...
     <download>
-      <url>http://file.lazysnake.com/u/32/1.0.0_1.0.1.patch</url>
+      <url>http://localhost/1.0.0_1.0.1.patch</url>
       <checksum>84230577e7d95ce5307484f478b90a2f35a52c742800169aae137f6ab8c1956b</checksum>
       <length>269968</length>
       <encryption>
