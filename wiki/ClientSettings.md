@@ -36,7 +36,7 @@ The client settings is stored in client.xml.
 | Tag | Description |
 | --- | --- |
 | [&lt;version&gt;](#version) | the current version of the software |
-| &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.. This folder should be empty and only be used by this software updater |
+| &lt;storage-path&gt; | the folder used to store the temporary files generated during patching etc.<br />this folder should be empty and only be used by this software updater |
 | [&lt;information&gt;](#information) | the title and icon of the launcher/downloader<br />it is optional, if not specified, it will use the default title and icon |
 | [&lt;launch&gt;](#launch) | the way to launch the software |
 | [&lt;catalog&gt;](#catalog) | the information of the catalog |
