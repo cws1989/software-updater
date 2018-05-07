@@ -59,7 +59,7 @@ If the type is **command**, list of **&lt;command&gt;** are used:
   </launch>
 ...
 ```
-The launcher will use [ProcessBuilder](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)to create a system process, all the **{java}** in the &lt;command&gt; will be replaced by the path of java binary.
+The launcher will use [ProcessBuilder](https://docs.oracle.com/javase/7/docs/api/java/lang/ProcessBuilder.html)to create a system process, all the **{java}** in the &lt;command&gt; will be replaced by the path of java binary that used to run the launcher.
 
 ## &lt;catalog&gt; ##
 If you didn't use [encryption](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-do-authentication-on-catalogxml) on the catalog, you can just include the url of the catalog as:
