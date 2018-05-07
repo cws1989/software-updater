@@ -10,7 +10,7 @@ The patches catalog is the catalog file containing the patches information, this
       <to>1.0.1</to>
     </version>
     <download>
-      <url>http://file.lazysnake.com/u/32/1.0.0_1.0.1.patch</url>
+      <url>http://localhost/1.0.0_1.0.1.patch</url>
       <checksum>84230577e7d95ce5307484f478b90a2f35a52c742800169aae137f6ab8c1956b</checksum>
       <length>269968</length>
       <encryption>
