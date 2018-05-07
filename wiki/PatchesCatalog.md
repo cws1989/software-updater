@@ -1,6 +1,6 @@
 # Patches Catalog #
 
-The patches catalog is the catalog file containing the patches information, this file should be host on the internet.
+The patches catalog is the catalog file containing the patches information, this file should be host on the internet. The url of this catalog should be included in the [client settings](https://github.com/cws1989/software-updater/blob/master/wiki/ClientSettings.md).
 
 ```xml
 <patches>
@@ -45,7 +45,7 @@ If you didn't use encryption, you can just include like:
 ```xml
 ...
     <download>
-      <url>http://file.lazysnake.com/u/32/1.0.0_1.0.1.patch</url>
+      <url>http://localhost/1.0.0_1.0.1.patch</url>
       <checksum>84230577e7d95ce5307484f478b90a2f35a52c742800169aae137f6ab8c1956b</checksum>
       <length>269968</length>
     </download>
@@ -67,7 +67,7 @@ If you have used encryption on patch, you have to include the cipher key like:
     </download>
 ...
 ```
-The checksum is the SHA-256 of the patch file, the length is the file length of the patch file in bytes.
+The patch should be hosted on the internet, the **&lt;url&gt;** is the url to download the patch file, the **&lt;checksum&gt;** is the SHA-256 of the patch file, the **&lt;length&gt;** is the file length of the patch file in bytes.
 
 [How do I encrypt the patch?](https://github.com/cws1989/software-updater/blob/master/wiki/AdvancedTutorial.md#how-do-i-encrypt-the-patch)
 
