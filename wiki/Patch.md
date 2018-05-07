@@ -1,5 +1,7 @@
 # Patch #
 
+This page mainly descript the patch file, for the way to create the patch, apply the patch etc., please visit other wiki pages.
+
 ## Patch Format ##
 
 The following is the file format of the patch file.
