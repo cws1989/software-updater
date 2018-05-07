@@ -1,4 +1,6 @@
-# Patch Format #
+# Patch #
+
+## Patch Format ##
 
 The following is the file format of the patch file.
 
