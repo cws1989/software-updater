@@ -6,7 +6,7 @@ The client settings is stored in client.xml.
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <root>
   <version>1.0.0</version>
-  <storage-path> stores the directoryupdate/</storage-path>
+  <storage-path>update/</storage-path>
   <launch>
     <type>command</type>
     <command>{java}</command>
