@@ -112,7 +112,7 @@ public class SeekableFile extends RandomAccessFileSeekableSource implements Paus
    */
   protected void check() {
     synchronized (this) {
-      if (pause) {
+      while (pause) {
         try {
           wait();
         } catch (InterruptedException ex) {

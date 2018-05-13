@@ -127,7 +127,7 @@ public class InterruptibleOutputStream extends FilterOutputStream implements Pau
    */
   protected void check() {
     synchronized (this) {
-      if (pause) {
+      while (pause) {
         try {
           wait();
         } catch (InterruptedException ex) {

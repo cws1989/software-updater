@@ -25,6 +25,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -322,7 +323,8 @@ public class HTTPDownloader implements Pausable, Interruptible {
         digest(digest, resumeFile);
       }
       in = httpConn.getInputStream();
-      in = (contentEncoding != null && contentEncoding.equals("gzip")) ? new GZIPInputStream(in, 32768) : new BufferedInputStream(in, 32768);
+      SizeRecordedInputStream srin = new SizeRecordedInputStream(in);
+      in = (contentEncoding != null && contentEncoding.equals("gzip")) ? new GZIPInputStream(srin, 32768) : new BufferedInputStream(srin, 32768);
       OutputStream outputToOut = null;
       if (resumeFile != null) {
         resumeFileOut = new BufferedOutputStream(new FileOutputStream(resumeFile, startRange != 0), 32768);
@@ -356,7 +358,7 @@ public class HTTPDownloader implements Pausable, Interruptible {
       }
 
       // check the downloaded file
-      if ((contentLength != -1 && cumulateByteRead + startRange != contentLength)
+      if ((contentLength != -1 && srin.totalLength + startRange != contentLength)
           || (expectedLength != -1 && cumulateByteRead + startRange != expectedLength)) {
         throw new RuntimeException(DownloadResult.FAILED.getValue());
       }
@@ -432,7 +434,7 @@ public class HTTPDownloader implements Pausable, Interruptible {
    */
   protected void check() {
     synchronized (this) {
-      if (pause) {
+      while (pause) {
         try {
           wait();
         } catch (InterruptedException ex) {
@@ -488,6 +490,42 @@ public class HTTPDownloader implements Pausable, Interruptible {
       }
     } finally {
       CommonUtil.closeQuietly(fin);
+    }
+  }
+
+  protected static class SizeRecordedInputStream extends FilterInputStream {
+
+    protected int totalLength = 0;
+
+    public SizeRecordedInputStream(InputStream in) {
+      super(in);
+    }
+
+    @Override
+    public int read() throws IOException {
+      int b = super.read();
+      if (b != -1) {
+        totalLength++;
+      }
+      return b;
+    }
+
+    @Override
+    public int read(byte b[]) throws IOException {
+      int lengthRead = super.read(b);
+      if (lengthRead != -1) {
+        totalLength += lengthRead;
+      }
+      return lengthRead;
+    }
+
+    @Override
+    public int read(byte b[], int off, int len) throws IOException {
+      int lengthRead = super.read(b, off, len);
+      if (lengthRead != -1) {
+        totalLength += lengthRead;
+      }
+      return lengthRead;
     }
   }
 }

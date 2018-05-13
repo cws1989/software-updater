@@ -214,7 +214,7 @@ public class InterruptibleInputStream extends FilterInputStream implements Pausa
    */
   protected void check() {
     synchronized (this) {
-      if (pause) {
+      while (pause) {
         try {
           wait();
         } catch (InterruptedException ex) {

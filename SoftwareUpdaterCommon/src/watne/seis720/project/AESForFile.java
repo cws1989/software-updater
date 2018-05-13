@@ -288,7 +288,7 @@ public class AESForFile extends WatneAES_Implementer {
 
     protected void check() {
         synchronized (this) {
-            if (pause) {
+            while (pause) {
                 try {
                     wait();
                 } catch (InterruptedException ex) {
